@@ -1,6 +1,6 @@
 asyncio
 requests
-psycopg2
+psycopg2-binary
 finance_calendars
 python-telegram-bot
 openai
