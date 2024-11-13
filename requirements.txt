@@ -3,6 +3,7 @@ requests
 psycopg2
 finance_calendars
 python-telegram-bot
-fitz
 openai
 watchdog
+python-dotenv
+pandas

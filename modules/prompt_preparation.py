@@ -1,8 +1,8 @@
-import fitz  # PyMuPDF
+# import fitz  # PyMuPDF
 import base64
 from mimetypes import guess_type
 from io import BytesIO
-from PIL import Image
+# from PIL import Image
 
 
 class PromptPreparation:
@@ -31,25 +31,25 @@ class PromptPreparation:
         """
         return self.content
 
-    def _process_pdf(self, pdf_path):
-        """
-        Extract text from a PDF file and add it to the content array.
-        :param pdf_path: Path to the PDF file.
-        """
-        print(f"Processing PDF: {pdf_path}")
-        doc = fitz.open(pdf_path)
-        for page_num in range(len(doc)):
-            page = doc[page_num]
+    # def _process_pdf(self, pdf_path):
+        # """
+        # Extract text from a PDF file and add it to the content array.
+        # :param pdf_path: Path to the PDF file.
+        # """
+        # print(f"Processing PDF: {pdf_path}")
+        # doc = fitz.open(pdf_path)
+        # for page_num in range(len(doc)):
+        #     page = doc[page_num]
 
-            # Extract text from the page
-            text_content = page.get_text()
+        #     # Extract text from the page
+        #     text_content = page.get_text()
 
-            # Append the extracted text to the content array
-            self.content.append({
-                "type": "text",
-                "text": text_content.strip()  # Strip to clean up extra whitespace
-            })
-        doc.close()
+        #     # Append the extracted text to the content array
+        #     self.content.append({
+        #         "type": "text",
+        #         "text": text_content.strip()  # Strip to clean up extra whitespace
+        #     })
+        # doc.close()
 
     # def _process_pdf(self, pdf_path):
     #     """
@@ -73,17 +73,17 @@ class PromptPreparation:
     #         })
     #     doc.close()
 
-    def _pixmap_to_jpeg(self, pix):
-        """
-        Convert a PyMuPDF pixmap to in-memory JPEG image.
-        :param pix: PyMuPDF Pixmap object.
-        :return: BytesIO object containing the JPEG image data.
-        """
-        img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
-        image_data = BytesIO()
-        img.save(image_data, format="JPEG")
-        image_data.seek(0)
-        return image_data
+    # def _pixmap_to_jpeg(self, pix):
+    #     """
+    #     Convert a PyMuPDF pixmap to in-memory JPEG image.
+    #     :param pix: PyMuPDF Pixmap object.
+    #     :return: BytesIO object containing the JPEG image data.
+    #     """
+    #     img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
+    #     image_data = BytesIO()
+    #     img.save(image_data, format="JPEG")
+    #     image_data.seek(0)
+    #     return image_data
 
     def _process_txt(self, txt_path):
         """
