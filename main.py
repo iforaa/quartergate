@@ -128,7 +128,6 @@ def parse_fiscal_data(fiscal_quarter):
     Returns:
         tuple: Fiscal year (int) and fiscal quarter (int).
     """
-    print(f'Parsing fiscal data: {fiscal_quarter}')
     month, year = fiscal_quarter.split('/')
     year = int(year)
 
