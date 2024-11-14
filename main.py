@@ -184,6 +184,7 @@ async def process_todays_transcripts(days_ago=1, max_symbols=3):
                 Imagine you are a financial analyst tasked with analyzing the following data for the ticker {ticker}. Your goal is to identify key financial results, successes, challenges, and future plans.
 
                 Start with a clear and engaging title.
+                In the introduction, provide context about the company and industry.
                 Summarize the main financial results at the top, prioritizing clarity and relevance.
                 Highlight key successes and notable failures from the provided information, along with any insights into future plans or strategies.
                 If the data includes an earnings call, summarize the Q&A session by focusing on the most critical questions and answers.
@@ -192,7 +193,7 @@ async def process_todays_transcripts(days_ago=1, max_symbols=3):
 
                 Brief overviews of countries (GDP, population, region) or companies (primary revenue sources, locations) mentioned.
                 Simplified explanations of complex financial terms as if explaining to a beginner.
-                Make the article engaging, clear, and easy to understand. You can use emojis to emphasize points but avoid using Markdown formatting.
+                Make the article engaging, clear, and easy to understand, but not long, try to be very precise. You can use emojis to emphasize points but avoid using Markdown formatting.
                 """
             )
 
@@ -238,4 +239,4 @@ async def process_todays_transcripts(days_ago=1, max_symbols=3):
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()
-    loop.run_until_complete(process_todays_transcripts(days_ago=1, max_symbols=5))
+    loop.run_until_complete(process_todays_transcripts(days_ago=1, max_symbols=10))
